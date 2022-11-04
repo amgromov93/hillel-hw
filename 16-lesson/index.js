@@ -33,40 +33,41 @@ function onDataBtnClick(e) {
     .catch((error) => {
         alert(error.message);
     })
+}
 
-    function getProfilAvatar(arrRes) { 
-        const profilAvatar = setElement(IMAGE_ELEMENT_CLASS);
 
-        dataContainer.append(profilAvatar);
-        profilAvatar.src = arrRes.avatar_url;
-    }
+function getProfilAvatar(arrRes) { 
+    const profilAvatar = setElement(IMAGE_ELEMENT_CLASS);
 
-    function getRepos(arrRes) {
-        const numberOfRepos = setElement(PARAGRAPH_ELEMENT_CLASS);
+    dataContainer.append(profilAvatar);
+    profilAvatar.src = arrRes.avatar_url;
+}
 
-        dataContainer.append(numberOfRepos);
-        numberOfRepos.textContent = `Repos: ${arrRes.public_repos}`;
-    }
+function getRepos(arrRes) {
+    const numberOfRepos = setElement(PARAGRAPH_ELEMENT_CLASS);
 
-    function getFollowers(arrRes) {
-        const numberOfFollowers = setElement(PARAGRAPH_ELEMENT_CLASS);
-        
-        dataContainer.append(numberOfFollowers);
-        numberOfFollowers.textContent = `Followers: ${arrRes.followers}`;
-    }
+    dataContainer.append(numberOfRepos);
+    numberOfRepos.textContent = `Repos: ${arrRes.public_repos}`;
+}
 
-    function getFollowings(arrRes) {
-        const numberOfFollowings = setElement(PARAGRAPH_ELEMENT_CLASS);
+function getFollowers(arrRes) {
+    const numberOfFollowers = setElement(PARAGRAPH_ELEMENT_CLASS);
+    
+    dataContainer.append(numberOfFollowers);
+    numberOfFollowers.textContent = `Followers: ${arrRes.followers}`;
+}
 
-        dataContainer.append(numberOfFollowings);
-        numberOfFollowings.textContent = `Followings: ${arrRes.following}`;
-    }
+function getFollowings(arrRes) {
+    const numberOfFollowings = setElement(PARAGRAPH_ELEMENT_CLASS);
 
-    function setElement(element) {
-        return document.createElement(element);
-    }
+    dataContainer.append(numberOfFollowings);
+    numberOfFollowings.textContent = `Followings: ${arrRes.following}`;
+}
 
-    function clearInput() {
-        return setNameInput.value = '';
-    }
+function setElement(element) {
+    return document.createElement(element);
+}
+
+function clearInput() {
+    return setNameInput.value = '';
 }
