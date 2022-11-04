@@ -1,0 +1,32 @@
+body {
+    padding: 30px;
+}
+
+.input {
+    width: 200px;
+}
+
+.button {
+    background-color: rgb(50, 133, 228);
+    color: #ffff;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: rgb(39, 19, 217);
+}
+
+.container {
+    padding: 20px 0;
+}
+
+.container p:nth-child(n) {
+    margin: 10px 10px;
+}
+
+img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+}
