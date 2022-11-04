@@ -24,49 +24,49 @@ function onDataBtnClick(e) {
     .then((res) => {
         const arrRes = res;
 
-        getProfilAvatar();
-        getRepos();
-        getFollowers();
-        getFollowings();
+        getProfilAvatar(arrRes);
+        getRepos(arrRes);
+        getFollowers(arrRes);
+        getFollowings(arrRes);
         clearInput();
-   
-        function getProfilAvatar() { 
-            const profilAvatar = setElement(IMAGE_ELEMENT_CLASS);
-
-            dataContainer.append(profilAvatar);
-            profilAvatar.src = arrRes.avatar_url;
-        }
-
-        function getRepos() {
-            const numberOfRepos = setElement(PARAGRAPH_ELEMENT_CLASS);
-
-            dataContainer.append(numberOfRepos);
-            numberOfRepos.textContent = `Repos: ${arrRes.public_repos}`;
-        }
-
-        function getFollowers() {
-            const numberOfFollowers = setElement(PARAGRAPH_ELEMENT_CLASS);
-            
-            dataContainer.append(numberOfFollowers);
-            numberOfFollowers.textContent = `Followers: ${arrRes.followers}`;
-        }
-
-        function getFollowings() {
-            const numberOfFollowings = setElement(PARAGRAPH_ELEMENT_CLASS);
-
-            dataContainer.append(numberOfFollowings);
-            numberOfFollowings.textContent = `Followings: ${arrRes.following}`;
-        }
-
-        function setElement(element) {
-            return document.createElement(element);
-        }
-
-        function clearInput() {
-            return setNameInput.value = '';
-        }
     })
     .catch((error) => {
         alert(error.message);
     })
+
+    function getProfilAvatar(arrRes) { 
+        const profilAvatar = setElement(IMAGE_ELEMENT_CLASS);
+
+        dataContainer.append(profilAvatar);
+        profilAvatar.src = arrRes.avatar_url;
+    }
+
+    function getRepos(arrRes) {
+        const numberOfRepos = setElement(PARAGRAPH_ELEMENT_CLASS);
+
+        dataContainer.append(numberOfRepos);
+        numberOfRepos.textContent = `Repos: ${arrRes.public_repos}`;
+    }
+
+    function getFollowers(arrRes) {
+        const numberOfFollowers = setElement(PARAGRAPH_ELEMENT_CLASS);
+        
+        dataContainer.append(numberOfFollowers);
+        numberOfFollowers.textContent = `Followers: ${arrRes.followers}`;
+    }
+
+    function getFollowings(arrRes) {
+        const numberOfFollowings = setElement(PARAGRAPH_ELEMENT_CLASS);
+
+        dataContainer.append(numberOfFollowings);
+        numberOfFollowings.textContent = `Followings: ${arrRes.following}`;
+    }
+
+    function setElement(element) {
+        return document.createElement(element);
+    }
+
+    function clearInput() {
+        return setNameInput.value = '';
+    }
 }
