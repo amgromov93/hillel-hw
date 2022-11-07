@@ -7,7 +7,7 @@ const ITEM_BODY_SELECTOR = '.items__body';
 const ITEM_BODY_BOX_SELECTOR = '.items__body-box';
 const INPUT_SELECTOR = '.items__input';
 const TODO_ITEM_TAMPLATE_SELECTOR = '.todoItemTamplate';
-
+const DELETE_BUTTON_CLASS = 'button__delete';
 
 const addBtn = document.querySelector(ADD_BUTTON_SELECTOR);
 const bodyItem = document.querySelector(ITEM_BODY_SELECTOR);
@@ -101,7 +101,7 @@ function setTodoItem() {
     function onBodyItemClick(e) {
         const dataEl = findDataEl(e.target);
 
-        if (e.target.classList.contains('button__delete')) {
+        if (e.target.classList.contains(DELETE_BUTTON_CLASS)) {
             if (dataEl) {
                 deleteTodoItem(dataEl);
                 return dataEl.remove();
