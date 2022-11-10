@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>home-work-17</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="./style.css">
+        <script src="./index.js" defer></script>
+    </head>
+    <body class="bodyBox">
+        <h1>Lesson-17</h1>
+        <div class="items__body"></div>
+        <div class="items__input-box">
+            <input class="items__input" >
+            <button class="items__add-btn">Add contact</button>
+        </div>
+    </body>
+    <script class="todoItemTamplate" type="text/tamplate">
+        <div class="items__body-box" data-id={{todo.id}}>
+            <p>{{title}}</p>
+            <p>{{done}}</p>
+            <button class="button__delete">Delete</button>
+        </div>
+</script>
+</html>
