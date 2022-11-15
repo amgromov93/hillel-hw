@@ -6,13 +6,11 @@ const GALLERY_LIST_LINK_CLASS = 'galleryLink';
 const GALLERY_LIST_LINK_SELECTOR = '.galleryLink';
 const GALLERY_LIST_SELECTOR = '.gallery__list';
 const GALLERY_BOX_SELECTOR= '.gallery__box';
-const DEFAULT_GALLERY_BOX_ID = '1';
 
 const galleryList = document.querySelector(GALLERY_LIST_SELECTOR);
 const galleryBox = document.querySelector(GALLERY_BOX_SELECTOR);
 
 getGalleryList();
-getGalleryBox(DEFAULT_GALLERY_BOX_ID);
 
 galleryList.addEventListener('click', onGalleryListClick)
 
@@ -26,9 +24,12 @@ function onGalleryListClick(e) {
 }
 
 function getGalleryList() {
-    GalleryApi.get('albums')
+    GalleryApi.get(GalleryApi.URL_LIST)
         .then((galleryListEl) => {
-            renderGalleryList(galleryListEl)
+            const firstLinkId = getFirstLinkId(galleryListEl);
+
+            renderGalleryList(galleryListEl);
+            getGalleryBox(firstLinkId);
         })
         .catch(showError)
 }
@@ -54,7 +55,7 @@ function getId(galleryListEl) {
 }
 
 function getGalleryBox(id) {
-    GalleryApi.get(`photos?albumId=${id}`)
+    GalleryApi.get(GalleryApi.URL_IMAGE_BOX + id)
         .then((galleryBoxEl) => {
             renderGalleryBox(galleryBoxEl)
         })
@@ -75,6 +76,10 @@ function generateGalleryImageBoxHTML(gallery) {
 
 function generateHtml(galleryEl, generateHtml) {
     return galleryEl.map(generateHtml).join('')
+}
+
+function getFirstLinkId(galleryListEl) {
+    return galleryListEl[0].id
 }
 
 function showError(error) {

@@ -1,8 +1,10 @@
 class GalleryApi {
-    static URL_LIST = 'https://jsonplaceholder.typicode.com/';
+    static URL = 'https://jsonplaceholder.typicode.com/';
+    static URL_LIST = 'albums';
+    static URL_IMAGE_BOX = 'photos?albumId=';
         
     static request(url = '', method = 'GET', body) {
-        return fetch(GalleryApi.URL_LIST + url, {
+        return fetch(GalleryApi.URL + url, {
             method,
             body: body ? JSON.stringify(body) : undefined,
             headers: {
@@ -21,7 +23,7 @@ class GalleryApi {
     static get(url) {
         return GalleryApi.request(url) 
         .catch ((error) => {
-            throw new Error('Cannot retrieve gallery from server');
+            throw new Error('Cannot retrieve list from server');
         })
     }
 }   
