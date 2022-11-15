@@ -5,7 +5,8 @@ import GalleryApi from "./GalleryApi.js";
 const GALLERY_LIST_LINK_CLASS = 'galleryLink';
 const GALLERY_LIST_LINK_SELECTOR = '.galleryLink';
 const GALLERY_LIST_SELECTOR = '.gallery__list';
-const GALLERY_BOX_SELECTOR= '.gallery__box';
+const GALLERY_BOX_SELECTOR = '.gallery__box';
+const FIRST_ELEMENT_NUMBER = '0';
 
 const galleryList = document.querySelector(GALLERY_LIST_SELECTOR);
 const galleryBox = document.querySelector(GALLERY_BOX_SELECTOR);
@@ -79,7 +80,7 @@ function generateHtml(galleryEl, generateHtml) {
 }
 
 function getFirstLinkId(galleryListEl) {
-    return galleryListEl[0].id
+    return galleryListEl[FIRST_ELEMENT_NUMBER].id
 }
 
 function showError(error) {
