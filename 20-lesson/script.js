@@ -15,10 +15,8 @@ let stickerList = []
 
 $addBtn.on('click', onAddBtnClick);
 $stickerBox
-    .on('focusout', onStickerBoxFocus)
+    .on('focusout',TEXT_AREA_SELECTOR, onStickerBoxFocus)
     .on('click', DELETE_BTN_SELECTOR, onDeleteBtnClick);
-
-$deleteBtn.off('focusout')
 
 getStickerItems();
 
@@ -27,7 +25,7 @@ function onAddBtnClick(e) {
    
     const sticker = getSticker();
 
-    createSticker(sticker);
+    createSticker();
 }
 
 function onDeleteBtnClick(e) {
@@ -45,10 +43,8 @@ function onStickerBoxFocus(e) {
     const id = getStickerId(stickerEl);
     const sticker = getStickerById(id);
     
-    console.log(sticker);
-    sticker.description = setStickerTextArea(stickerEl);
-    
     if (sticker) {
+        sticker.description = setStickerTextArea(stickerEl);
         StickerApi.update(sticker.id, sticker).catch(showError)
     }
 }
@@ -60,22 +56,14 @@ function getStickerItems() {
     .catch(showError)
 }
 
-function createSticker(sticker) {
+function createSticker() {
     StickerApi.create()
-    .then(() => {
-        addStickerItem(sticker);
-    })
+    .then(getStickerItems)
     .catch(showError)
 }
 
 function setStickerTextArea(el) {
     return el.children[TEXT_AREA_NUM].value
-}
-
-function addStickerItem(sticker) {
-    const html = generateHtml(sticker);
-
-    $stickerBox.append = html;
 }
 
 function renderStickers(sticker) {
