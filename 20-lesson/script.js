@@ -42,9 +42,10 @@ function onStickerBoxFocus(e) {
     const stickerEl = getStickerEl(e.target);
     const id = getStickerId(stickerEl);
     const sticker = getStickerById(id);
+
+    sticker.description = setStickerTextArea(stickerEl);
     
     if (sticker) {
-        sticker.description = setStickerTextArea(stickerEl);
         StickerApi.update(sticker.id, sticker).catch(showError)
     }
 }
