@@ -1,0 +1,39 @@
+.sticker__container {
+    max-width: 1020px;
+    margin: 0 auto;
+    padding: 20px;
+    display: grid;
+    grid-template-rows: min-content min-content;
+    justify-items: end;
+}
+
+.button__box {
+    grid-row: 1 / 2;
+    margin-bottom: 20px;
+}
+
+button {
+    cursor: pointer;
+}
+
+.sticker__box {
+    padding-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    row-gap: 20px;
+    border-top: 1px solid black;
+}
+
+.sticker__item {
+    position: relative;
+    padding: 20px 2px 10px 5px;
+    background-color: green;
+}
+
+.button__delete {
+    position: absolute;
+    top: 3px;
+    right: 2px;
+    font-size: 8px;
+}
