@@ -1,0 +1,11 @@
+thead {
+    font-weight: 700;
+}
+
+#todoForm {
+    display: flex;
+}
+
+#todoForm button {
+    margin-left: 10px;
+}
