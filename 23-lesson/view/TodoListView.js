@@ -16,7 +16,6 @@ class TodoListView extends View {
 
     init() {
         return $(`
-            <h4>Todo List</h4>
             <table>
                 <thead>
                     <tr>

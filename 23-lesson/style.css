@@ -3,6 +3,7 @@ thead {
 }
 
 #todoForm {
+    margin-bottom: 20px;
     display: flex;
 }
 
