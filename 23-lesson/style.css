@@ -1,0 +1,12 @@
+thead {
+    font-weight: 700;
+}
+
+#todoForm {
+    margin-bottom: 20px;
+    display: flex;
+}
+
+#todoForm button {
+    margin-left: 10px;
+}
