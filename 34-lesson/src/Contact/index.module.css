@@ -1,0 +1,16 @@
+.error {
+  color: red;
+  margin-left: 10px;
+}
+
+.container {
+  padding: 10px;
+}
+
+div {
+  margin-bottom: 10px;
+  width: 600px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+}
